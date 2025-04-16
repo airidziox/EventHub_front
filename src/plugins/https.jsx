@@ -1,4 +1,4 @@
-module.exports =  {
+const http = {
     get: (url) => {
         return new Promise(resolve => {
 
@@ -69,3 +69,5 @@ module.exports =  {
         })
     }
 }
+
+export default http

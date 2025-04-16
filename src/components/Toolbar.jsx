@@ -1,45 +1,55 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import useStore from '../store/main.jsx';
+import {Link, useNavigate} from "react-router-dom";
+import useStore from '../store/mainStore.jsx';
 
 const Toolbar = () => {
 
-    const {loggedUser} = useStore((state) => state);
+    const {loggedUser, updateLoggedUser} = useStore((state) => state);
+
+    const navigate = useNavigate()
+
+    function logout() {
+        updateLoggedUser(null)
+        navigate("/")
+    }
 
     return (
         <>
+            {loggedUser &&
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 border-b border-b-gray-500">
-                <a className="block text-rose-600" href="/home">
+                <Link className="block text-rose-600" to={"/home"}>
                     <span className="text-2xl font-bold">EventHub</span>
-                </a>
+                </Link>
 
                 <div className="flex flex-1 items-center justify-end md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
                         <ul className="flex items-center gap-6 text-sm">
                             <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#">
+                                <Link className="text-gray-900 transition p-3 rounded-md hover:bg-rose-200" to={"/create"}>
                                     Create Event
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#">
+                                <Link className="text-gray-900 transition p-3 rounded-md hover:bg-rose-200" to={"/myEvents"}>
                                     Your Events
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
-                                <a className="text-gray-900 transition hover:text-gray-500/75" href="#">
-                                    Favorite Events
-                                </a>
+                                <Link className="text-gray-900 transition p-3 rounded-md hover:bg-rose-200" to={"/favorites"}>
+                                    Favorites
+                                </Link>
                             </li>
                         </ul>
                     </nav>
 
                     <div className="flex items-center gap-4">
+                        <p className="text-sm">Logged in as: <span className="underline">{loggedUser.username}</span></p>
                         <div className="sm:flex sm:gap-4">
-                            <a className="block rounded-md bg-rose-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-rose-700"
-                               href="#">
+                            <a
+                                onClick={logout}
+                                className="block cursor-pointer rounded-md bg-rose-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-rose-700">
                                 Logout
                             </a>
                         </div>
@@ -47,6 +57,7 @@ const Toolbar = () => {
                     </div>
                 </div>
             </div>
+            }
         </>
     );
 };

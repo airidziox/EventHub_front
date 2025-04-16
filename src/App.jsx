@@ -5,6 +5,9 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import Toolbar from "./components/Toolbar.jsx";
+import CreatePage from "./pages/CreatePage.jsx";
+import MyEventsPage from "./pages/MyEventsPage.jsx";
+import FavoritesPage from "./pages/FavoritesPage.jsx";
 
 
 function App() {
@@ -13,14 +16,16 @@ function App() {
     <>
         <BrowserRouter>
             <Toolbar/>
-            <div className="d-flex flex-column gap-5 p-3">
+            <div className="mx-auto max-w-screen-xl p-3">
                 <Routes>
                     <Route path="/" element={<LoginPage/>}/>
                     <Route path="/register" element={<RegisterPage/>}/>
                     <Route path="/home" element={<HomePage/>}/>
+                    <Route path="/create" element={<CreatePage/>}/>
+                    <Route path="/myEvents" element={<MyEventsPage/>}/>
+                    <Route path="/favorites" element={<FavoritesPage/>}/>
                 </Routes>
             </div>
-            {/*<Footer/>*/}
         </BrowserRouter>
     </>
   )

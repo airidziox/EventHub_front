@@ -56,7 +56,7 @@ const EventCard = ({event}) => {
         if (!seats) {
             newErrors.seats = "Seat number is required.";
         }
-        else if (seats <= 5) {
+        else if (seats < 5) {
             newErrors.seats = "Event must have at least 5 seats.";
         }
 
@@ -81,7 +81,7 @@ const EventCard = ({event}) => {
             image: imageRef.current.value
         }
 
-        const res = await http.postToken("http://localhost:2001/edit", eventUpdate)
+        const res = await http.postToken(`http://localhost:2001/edit/${event._id}`, eventUpdate)
 
         if (res.error) {
             const newErrors = {};
@@ -223,7 +223,7 @@ const EventCard = ({event}) => {
                                         <div>
                                             <label className="block mb-1 text-gray-500 opacity-75">Date</label>
                                             <input type="date" ref={dateRef} required
-                                                   className={`w-full border border-gray-300 ${errors.image ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}/>
+                                                   className={`w-full border border-gray-300 ${errors.date ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}/>
                                             {errors.date && (
                                                 <p className="mt-1 text-sm text-rose-500">{errors.date}</p>
                                             )}
@@ -233,7 +233,7 @@ const EventCard = ({event}) => {
                                         <div>
                                             <label className="block mb-1 text-gray-500 opacity-75">Time</label>
                                             <input type="time" ref={timeRef} required
-                                                   className={`w-full border border-gray-300 ${errors.image ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}/>
+                                                   className={`w-full border border-gray-300 ${errors.time ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}/>
                                             {errors.time && (
                                                 <p className="mt-1 text-sm text-rose-500">{errors.time}</p>
                                             )}

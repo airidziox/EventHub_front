@@ -62,7 +62,7 @@ const SingleEventPage = () => {
                     <div className="bg-white shadow-md p-6 rounded-2xl">
                         <p className="text-gray-600 mb-2">Date & Time</p>
                         <p className="text-lg font-semibold text-gray-800">
-                            {event.date}
+                            {event.date} - {event.time}
                         </p>
                         <hr className="my-4"/>
                         <p className="text-gray-600 mb-2">Location</p>

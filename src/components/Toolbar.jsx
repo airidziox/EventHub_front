@@ -23,21 +23,21 @@ const Toolbar = () => {
 
                 <div className="flex flex-1 items-center justify-end md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
-                        <ul className="flex items-center gap-6 text-sm font-medium text-gray-800">
+                        <ul className="flex items-center gap-3 text-sm font-medium text-gray-800">
                             <li>
-                                <Link className="transition p-3 rounded-md hover:bg-rose-200" to={"/create"}>
+                                <Link className="transition py-2 px-4 rounded-2xl hover:bg-rose-200" to={"/create"}>
                                     Create Event
                                 </Link>
                             </li>
 
                             <li>
-                                <Link className="transition p-3 rounded-md hover:bg-rose-200" to={"/myEvents"}>
+                                <Link className="transition py-2 px-4 rounded-2xl hover:bg-rose-200" to={"/myEvents"}>
                                     Your Events
                                 </Link>
                             </li>
 
                             <li>
-                                <Link className="transition p-3 rounded-md hover:bg-rose-200" to={"/favorites"}>
+                                <Link className="transition py-2 px-4 rounded-2xl hover:bg-rose-200" to={"/favorites"}>
                                     Favorites
                                 </Link>
                             </li>

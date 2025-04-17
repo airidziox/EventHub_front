@@ -17,7 +17,7 @@ function App() {
     <>
         <BrowserRouter>
             <Toolbar/>
-            <div className="mx-auto max-w-screen-xl p-3 font-sans">
+            <div className="mx-auto max-w-screen-xl p-3">
                 <Routes>
                     <Route path="/" element={<LoginPage/>}/>
                     <Route path="/register" element={<RegisterPage/>}/>

@@ -16,13 +16,13 @@ const Toolbar = () => {
     return (
         <>
             {loggedUser &&
-            <div className="mx-auto font-sans flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
+            <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
                 <Link className="block text-rose-600" to={"/home"}>
                     <span className="text-2xl font-bold">EventHub</span>
                 </Link>
 
                 <div className="flex flex-1 items-center justify-end md:justify-between">
-                    <nav aria-label="Global" className="hidden md:block">
+                    <nav className="hidden md:block">
                         <ul className="flex items-center gap-3 text-sm font-medium text-gray-800">
                             <li>
                                 <Link className="transition py-2 px-4 rounded-2xl hover:bg-rose-200" to={"/create"}>

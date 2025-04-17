@@ -108,7 +108,7 @@ const CreatePage = () => {
 
     return (
         <div
-            className="relative mx-auto w-full max-w-md bg-white mt-10 px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+            className="relative mx-auto w-full max-w-md bg-white mt-10 px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 rounded-2xl sm:px-10">
             <div className="w-full">
                 <div className="text-center">
                     <h1 className="text-3xl font-semibold text-gray-900">Create Event</h1>
@@ -208,7 +208,7 @@ const CreatePage = () => {
                         <div className="mt-6">
                             <button
                                 onClick={create}
-                                className="w-full font-bold cursor-pointer rounded-md bg-rose-600 px-3 py-4 text-white hover:bg-rose-700">Create
+                                className="w-full font-bold cursor-pointer rounded-xl bg-rose-500 px-3 py-4 text-white hover:bg-rose-600">Create
                             </button>
                         </div>
 

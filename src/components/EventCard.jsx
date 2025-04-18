@@ -12,6 +12,7 @@ const EventCard = ({event}) => {
     const timeRef = useRef();
     const seatsRef = useRef();
     const imageRef = useRef();
+    const categoryRef = useRef();
 
     const {loggedUser, updateEvents} = useStore((state) => state);
 
@@ -28,6 +29,7 @@ const EventCard = ({event}) => {
         const time = timeRef.current.value;
         const seats = seatsRef.current.value;
         const image = imageRef.current.value.trim();
+        const category = categoryRef.current.value
 
         if (!title) {
             newErrors.title = "Title is required.";
@@ -51,6 +53,10 @@ const EventCard = ({event}) => {
 
         if (!time) {
             newErrors.time = "Time is required.";
+        }
+
+        if (!category) {
+            newErrors.category = "Category is required.";
         }
 
         if (!seats) {
@@ -78,7 +84,8 @@ const EventCard = ({event}) => {
             date: dateRef.current.value,
             time: timeRef.current.value,
             seats: seatsRef.current.value,
-            image: imageRef.current.value
+            image: imageRef.current.value,
+            category: categoryRef.current.value
         }
 
         const res = await http.postToken(`http://localhost:2001/edit/${event._id}`, eventUpdate)
@@ -106,8 +113,24 @@ const EventCard = ({event}) => {
             timeRef.current.value = event.time
             seatsRef.current.value = event.seats
             imageRef.current.value = event.image
+            categoryRef.current.value = event.category
         }
     }, [isModalOpen]);
+
+    function getCategoryColor(category) {
+        const colors = {
+            music: "bg-blue-500 text-white",
+            sports: "bg-green-500 text-white",
+            conference: "bg-purple-500 text-white",
+            art: "bg-pink-500 text-white",
+            technology: "bg-orange-500 text-white",
+            festival: "bg-red-500 text-white",
+            education: "bg-cyan-500 text-white",
+            business: "bg-gray-700 text-white",
+        };
+
+        return colors[category?.toLowerCase()]
+    }
 
     return (
         <div
@@ -132,6 +155,7 @@ const EventCard = ({event}) => {
 
             {/* Event info */}
             <div className="p-4">
+
                 <div className="flex justify-between">
                     <Link to={`/event/${event._id}`}>
                         <h2 className="text-xl font-semibold text-gray-800">{event.title}</h2>
@@ -143,10 +167,19 @@ const EventCard = ({event}) => {
                     }
                 </div>
 
+                {/* Category Badge */}
+                <div className={`inline-block text-xs font-medium px-3 py-1 mt-2 rounded-full 
+      ${getCategoryColor(event.category)}`}>
+                    {event.category}
+                </div>
+
                 {/* Edit Modal */}
                 {isModalOpen && (
-                    <div className="fixed inset-0 bg-black/50 bg-opacity-40 flex justify-center items-center z-50 animate-fade" onClick={() => setIsModalOpen(false)}>
-                        <div className="bg-white p-6 rounded-2xl shadow-xl ring-1 ring-gray-900/5 w-[90%] max-w-md" onClick={(e) => e.stopPropagation()}>
+                    <div
+                        className="fixed inset-0 bg-black/50 bg-opacity-40 flex justify-center items-center z-50 animate-fade"
+                        onClick={() => setIsModalOpen(false)}>
+                        <div className="bg-white p-6 rounded-2xl shadow-xl ring-1 ring-gray-900/5 w-[90%] max-w-md"
+                             onClick={(e) => e.stopPropagation()}>
 
                             {/* Form */}
                             <h1 className="text-center text-3xl font-semibold text-gray-900">Edit Event</h1>
@@ -218,6 +251,30 @@ const EventCard = ({event}) => {
                                         <p className="relative mt-1 text-sm text-rose-500">{errors.image}</p>
                                     )}
 
+                                    <div className="mt-6">
+                                        <label className="block mb-1 text-gray-500 opacity-75">Category</label>
+                                        <select
+                                            id="category"
+                                            name="category"
+                                            ref={categoryRef}
+                                            className={`w-full border border-gray-300 ${errors.category ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                                        >
+                                            <option value="">Select category</option>
+                                            <option value="Music">Music</option>
+                                            <option value="Sports">Sports</option>
+                                            <option value="Conference">Conference</option>
+                                            <option value="Art">Art</option>
+                                            <option value="Technology">Technology</option>
+                                            <option value="Festival">Festival</option>
+                                            <option value="Education">Education</option>
+                                            <option value="Business">Business</option>
+                                        </select>
+                                    </div>
+
+                                    {errors.category && (
+                                        <p className="mt-1 text-sm text-rose-500">{errors.category}</p>
+                                    )}
+
                                     <div className="grid grid-cols-2 gap-4 mt-6">
                                         {/* Date */}
                                         <div>
@@ -254,7 +311,7 @@ const EventCard = ({event}) => {
                     </div>
                 )}
 
-                <p className="text-sm text-gray-500 mt-1">📍 {event.location}</p>
+                <p className="text-sm text-gray-500 mt-2">📍 {event.location}</p>
                 <p className="text-sm text-gray-500">📅 {event.date} – {event.time}</p>
                 <p className="text-sm text-gray-500">👤 Created by: {event.username}</p>
 

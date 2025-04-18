@@ -20,6 +20,7 @@ const CreatePage = () => {
     const timeRef = useRef();
     const seatsRef = useRef();
     const imageRef = useRef();
+    const categoryRef = useRef()
 
     const [errors, setErrors] = useState({});
 
@@ -35,6 +36,7 @@ const CreatePage = () => {
         const time = timeRef.current.value;
         const seats = seatsRef.current.value;
         const image = imageRef.current.value.trim();
+        const category = categoryRef.current.value
 
         if (!title) {
             newErrors.title = "Title is required.";
@@ -47,6 +49,10 @@ const CreatePage = () => {
         }
         else if (description.length < 10)
             newErrors.description = "Description must be at least 10 symbols long.";
+
+        if (!category) {
+            newErrors.category = "Category is required.";
+        }
 
         if (!location) {
             newErrors.location = "Location is required.";
@@ -87,7 +93,8 @@ const CreatePage = () => {
             date: dateRef.current.value,
             time: timeRef.current.value,
             seats: seatsRef.current.value,
-            image: imageRef.current.value
+            image: imageRef.current.value,
+            category: categoryRef.current.value
         }
 
         const res = await http.postToken("http://localhost:2001/create", event)
@@ -115,8 +122,6 @@ const CreatePage = () => {
                     <p className="mt-2 text-gray-500">Please fill form below to create your event.</p>
                 </div>
                 <div className="mt-5">
-                    <div>
-
                         {/* Title */}
                         <div className="relative mt-6">
                             <input type="text" placeholder="Title" ref={titleRef} required
@@ -182,6 +187,30 @@ const CreatePage = () => {
                             <p className="relative mt-1 text-sm text-rose-500">{errors.image}</p>
                         )}
 
+                        <div className="mt-6">
+                            <label className="block mb-1 text-gray-500 opacity-75">Category</label>
+                            <select
+                                id="category"
+                                name="category"
+                                ref={categoryRef}
+                                className={`w-full border border-gray-300 ${errors.category ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                            >
+                                <option value="">Select category</option>
+                                <option value="Music">Music</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Conference">Conference</option>
+                                <option value="Art">Art</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Festival">Festival</option>
+                                <option value="Education">Education</option>
+                                <option value="Business">Business</option>
+                            </select>
+                        </div>
+
+                        {errors.category && (
+                            <p className="mt-1 text-sm text-rose-500">{errors.category}</p>
+                        )}
+
                         <div className="grid grid-cols-2 gap-4 mt-6">
                             {/* Date */}
                             <div>
@@ -213,7 +242,6 @@ const CreatePage = () => {
                         </div>
 
                     </div>
-                </div>
             </div>
         </div>
     );

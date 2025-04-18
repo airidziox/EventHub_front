@@ -104,6 +104,19 @@ const EventCard = ({event}) => {
         }
     }
 
+    async function deleteEvent() {
+
+        const res = await http.postToken(`http://localhost:2001/delete/${event._id}`,)
+
+        if (res.error) {
+            return console.log(res)
+        } else {
+            updateEvents(res.events)
+            setIsModalOpen(false)
+            console.log(res)
+        }
+    }
+
     useEffect(() => {
         if (isModalOpen) {
             titleRef.current.value = event.title
@@ -301,7 +314,14 @@ const EventCard = ({event}) => {
                                     <div className="mt-6">
                                         <button
                                             onClick={edit}
-                                            className="w-full font-bold cursor-pointer rounded-xl bg-rose-500 px-3 py-4 text-white hover:bg-rose-600">Edit
+                                            className="w-full font-bold cursor-pointer rounded-xl bg-rose-500 px-3 py-4 text-white hover:bg-rose-600">Save Changes
+                                        </button>
+                                    </div>
+
+                                    <div className="mt-3">
+                                        <button
+                                            onClick={deleteEvent}
+                                            className="w-full font-bold cursor-pointer rounded-xl bg-gray-800 px-3 py-4 text-white hover:bg-gray-700">Delete
                                         </button>
                                     </div>
 

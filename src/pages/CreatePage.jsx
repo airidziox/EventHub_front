@@ -233,7 +233,6 @@ const CreatePage = () => {
                             </div>
                         </div>
 
-
                         <div className="mt-6">
                             <button
                                 onClick={create}

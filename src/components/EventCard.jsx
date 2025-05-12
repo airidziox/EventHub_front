@@ -150,7 +150,7 @@ const EventCard = ({event}) => {
             className="card relative rounded-2xl overflow-hidden shadow-lg">
             {/* Seats badge */}
             <div
-                className="absolute flex gap-1 top-3 right-3 bg-rose-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                className="absolute flex gap-1 top-3 right-3 bg-rose-500 dark:bg-rose-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                      stroke="currentColor" className="size-4">
                     <path strokeLinecap="round" strokeLinejoin="round"
@@ -171,7 +171,7 @@ const EventCard = ({event}) => {
 
                 <div className="flex justify-between">
                     <Link to={`/event/${event._id}`}>
-                        <h2 className="text-xl font-semibold text-gray-800">{event.title}</h2>
+                        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">{event.title}</h2>
                     </Link>
                     {loggedUser.username === event.username &&
                         <div
@@ -181,7 +181,7 @@ const EventCard = ({event}) => {
                 </div>
 
                 {/* Category Badge */}
-                <div className={`inline-block text-xs font-medium px-3 py-1 mt-2 rounded-full 
+                <div className={`inline-block text-xs font-medium px-3 py-1 mt-2 rounded-full dark:text-gray-200 dark:bg-gray-700 
       ${getCategoryColor(event.category)}`}>
                     {event.category}
                 </div>
@@ -191,86 +191,110 @@ const EventCard = ({event}) => {
                     <div
                         className="fixed inset-0 bg-black/50 bg-opacity-40 flex justify-center items-center z-50 animate-fade"
                         onClick={() => setIsModalOpen(false)}>
-                        <div className="bg-white p-6 rounded-2xl shadow-xl ring-1 ring-gray-900/5 w-[90%] max-w-md"
+                        <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-xl ring-1 ring-gray-900/5 dark:ring-gray-700/5 w-[90%] max-w-md"
                              onClick={(e) => e.stopPropagation()}>
 
                             {/* Form */}
-                            <h1 className="text-center text-3xl font-semibold text-gray-900">Edit Event</h1>
-                            <div className="mt-5">
+                            <h1 className="text-center text-3xl font-semibold text-gray-900 dark:text-gray-200">Edit Event</h1>
+                            <div className="mt-5 dark:text-gray-400">
                                 <div>
 
                                     {/* Title */}
                                     <div className="relative mt-6">
-                                        <input type="text" placeholder="Title" ref={titleRef} required
-                                               className={`peer mt-1 w-full border-b-2 ${errors.title ? "border-rose-500" : "border-gray-300"} px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none`}/>
+                                        <input
+                                            type="text"
+                                            placeholder="Title"
+                                            ref={titleRef}
+                                            required
+                                            className={`peer mt-1 w-full border-b-2 ${errors.title ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                        />
                                         <label
-                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">
-                                            Title</label>
+                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
+                                            Title
+                                        </label>
+                                        {errors.title && (
+                                            <p className="mt-1 text-sm text-rose-500">{errors.title}</p>
+                                        )}
                                     </div>
-
-                                    {errors.title && (
-                                        <p className="mt-1 text-sm text-rose-500">{errors.title}</p>
-                                    )}
 
                                     {/* Description */}
                                     <div className="relative mt-6">
-                                        <input type="text" placeholder="Description" ref={descriptionRef} required
-                                               className={`peer mt-1 w-full border-b-2 ${errors.description ? "border-rose-500" : "border-gray-300"} px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none`}/>
+                                        <input
+                                            type="text"
+                                            placeholder="Description"
+                                            ref={descriptionRef}
+                                            required
+                                            className={`peer mt-1 w-full border-b-2 ${errors.description ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                        />
                                         <label
-                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">
-                                            Description</label>
+                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
+                                            Description
+                                        </label>
+                                        {errors.description && (
+                                            <p className="mt-1 text-sm text-rose-500">{errors.description}</p>
+                                        )}
                                     </div>
-
-                                    {errors.description && (
-                                        <p className="mt-1 text-sm text-rose-500">{errors.description}</p>
-                                    )}
 
                                     {/* Location */}
                                     <div className="relative mt-6">
-                                        <input type="text" placeholder="Location" ref={locationRef} required
-                                               className={`peer mt-1 w-full border-b-2 ${errors.location ? "border-rose-500" : "border-gray-300"} px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none`}/>
+                                        <input
+                                            type="text"
+                                            placeholder="Location"
+                                            ref={locationRef}
+                                            required
+                                            className={`peer mt-1 w-full border-b-2 ${errors.location ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                        />
                                         <label
-                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">
-                                            Location</label>
+                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
+                                            Location
+                                        </label>
+                                        {errors.location && (
+                                            <p className="mt-1 text-sm text-rose-500">{errors.location}</p>
+                                        )}
                                     </div>
 
-                                    {errors.location && (
-                                        <p className="mt-1 text-sm text-rose-500">{errors.location}</p>
-                                    )}
-
-                                    {/* Seats Input */}
+                                    {/* Seats */}
                                     <div className="relative mt-6 w-full">
-                                        <input type="number" placeholder="Number of seats" ref={seatsRef} required
-                                               className={`peer mt-1 w-full border-b-2 ${errors.seats ? "border-rose-500" : "border-gray-300"} px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none`}/>
+                                        <input
+                                            type="number"
+                                            placeholder="Number of seats"
+                                            ref={seatsRef}
+                                            required
+                                            className={`peer mt-1 w-full border-b-2 ${errors.seats ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                        />
                                         <label
-                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">
-                                            Number of seats</label>
+                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
+                                            Number of seats
+                                        </label>
+                                        {errors.seats && (
+                                            <p className="mt-1 text-sm text-rose-500">{errors.seats}</p>
+                                        )}
                                     </div>
 
-                                    {errors.seats && (
-                                        <p className="relative mt-1 text-sm text-rose-500">{errors.seats}</p>
-                                    )}
-
-                                    {/* Image Upload */}
+                                    {/* Image URL */}
                                     <div className="relative mt-6 w-full">
-                                        <input type="text" placeholder="Event Image URL" ref={imageRef} required
-                                               className={`peer mt-1 w-full border-b-2 ${errors.image ? "border-rose-500" : "border-gray-300"} px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none`}/>
+                                        <input
+                                            type="text"
+                                            placeholder="Event Image URL"
+                                            ref={imageRef}
+                                            required
+                                            className={`peer mt-1 w-full border-b-2 ${errors.image ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                        />
                                         <label
-                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">
-                                            Event Image URL</label>
+                                            className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
+                                            Event Image URL
+                                        </label>
+                                        {errors.image && (
+                                            <p className="mt-1 text-sm text-rose-500">{errors.image}</p>
+                                        )}
                                     </div>
 
-                                    {errors.image && (
-                                        <p className="relative mt-1 text-sm text-rose-500">{errors.image}</p>
-                                    )}
-
+                                    {/* Category */}
                                     <div className="mt-6">
-                                        <label className="block mb-1 text-gray-500 opacity-75">Category</label>
+                                        <label className="block mb-1 text-gray-500 dark:text-gray-400 opacity-75">Category</label>
                                         <select
-                                            id="category"
-                                            name="category"
                                             ref={categoryRef}
-                                            className={`w-full border border-gray-300 ${errors.category ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                                            className={`w-full bg-white dark:bg-gray-700 text-gray-800 dark:text-white border ${errors.category ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
                                         >
                                             <option value="">Select category</option>
                                             <option value="Music">Music</option>
@@ -282,46 +306,50 @@ const EventCard = ({event}) => {
                                             <option value="Education">Education</option>
                                             <option value="Business">Business</option>
                                         </select>
+                                        {errors.category && (
+                                            <p className="mt-1 text-sm text-rose-500">{errors.category}</p>
+                                        )}
                                     </div>
 
-                                    {errors.category && (
-                                        <p className="mt-1 text-sm text-rose-500">{errors.category}</p>
-                                    )}
-
+                                    {/* Date & Time */}
                                     <div className="grid grid-cols-2 gap-4 mt-6">
-                                        {/* Date */}
                                         <div>
-                                            <label className="block mb-1 text-gray-500 opacity-75">Date</label>
-                                            <input type="date" ref={dateRef} required
-                                                   className={`w-full border border-gray-300 ${errors.date ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}/>
+                                            <label className="block mb-1 text-gray-500 dark:text-gray-400 opacity-75">Date</label>
+                                            <input
+                                                type="date"
+                                                ref={dateRef}
+                                                required
+                                                className={`w-full bg-white dark:bg-gray-700 text-gray-800 dark:text-white border ${errors.date ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                                            />
                                             {errors.date && (
                                                 <p className="mt-1 text-sm text-rose-500">{errors.date}</p>
                                             )}
                                         </div>
-
-                                        {/* Time */}
                                         <div>
-                                            <label className="block mb-1 text-gray-500 opacity-75">Time</label>
-                                            <input type="time" ref={timeRef} required
-                                                   className={`w-full border border-gray-300 ${errors.time ? "border-rose-500" : "border-gray-300"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}/>
+                                            <label className="block mb-1 text-gray-500 dark:text-gray-400 opacity-75">Time</label>
+                                            <input
+                                                type="time"
+                                                ref={timeRef}
+                                                required
+                                                className={`w-full bg-white dark:bg-gray-700 text-gray-800 dark:text-white border ${errors.time ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                                            />
                                             {errors.time && (
                                                 <p className="mt-1 text-sm text-rose-500">{errors.time}</p>
                                             )}
                                         </div>
                                     </div>
 
-
                                     <div className="mt-6">
                                         <button
                                             onClick={edit}
-                                            className="w-full font-bold cursor-pointer rounded-xl bg-rose-500 px-3 py-4 text-white hover:bg-rose-600">Save Changes
+                                            className="w-full font-bold cursor-pointer rounded-xl bg-rose-500 dark:bg-rose-600 px-3 py-4 text-white hover:bg-rose-600 dark:hover:bg-rose-700">Save Changes
                                         </button>
                                     </div>
 
                                     <div className="mt-3">
                                         <button
                                             onClick={deleteEvent}
-                                            className="w-full font-bold cursor-pointer rounded-xl bg-gray-800 px-3 py-4 text-white hover:bg-gray-700">Delete
+                                            className="w-full font-bold cursor-pointer rounded-xl bg-gray-800 dark:bg-gray-700 px-3 py-4 text-white hover:bg-gray-700 dark:hover:bg-gray-600">Delete
                                         </button>
                                     </div>
 
@@ -331,18 +359,18 @@ const EventCard = ({event}) => {
                     </div>
                 )}
 
-                <p className="text-sm text-gray-500 mt-2">📍 {event.location}</p>
-                <p className="text-sm text-gray-500">📅 {event.date} – {event.time}</p>
-                <p className="text-sm text-gray-500">👤 Created by: {event.username}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-2">📍 {event.location}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-300">📅 {event.date} – {event.time}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-300">👤 Created by: {event.username}</p>
 
-                <p className="text-sm text-gray-700 mt-3 line-clamp-3">
+                <p className="text-sm text-gray-700 dark:text-gray-400 mt-3 line-clamp-3">
                     {event.description}
                 </p>
 
                 <div className="mt-4">
                     <Link to={`/event/${event._id}`}>
                         <button
-                            className="w-full cursor-pointer bg-rose-500 hover:bg-rose-600 text-white font-medium py-2 px-4 rounded-xl transition">
+                            className="w-full cursor-pointer bg-rose-500 hover:bg-rose-600 dark:bg-rose-600 dark:hover:bg-rose-700 text-white font-medium py-2 px-4 rounded-xl transition">
                             View Details
                         </button>
                     </Link>

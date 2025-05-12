@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import useStore from '../store/mainStore.jsx';
+import DarkModeToggle from "./DarkModeToggle.jsx";
 
 const Toolbar = () => {
 
@@ -23,7 +24,7 @@ const Toolbar = () => {
 
                 <div className="flex flex-1 items-center justify-end md:justify-between">
                     <nav className="hidden md:block">
-                        <ul className="flex items-center gap-3 text-sm font-medium text-gray-800">
+                        <ul className="flex items-center gap-3 text-sm font-medium">
                             <li>
                                 <Link className="transition py-2 px-4 rounded-2xl hover:bg-rose-200" to={"/create"}>
                                     Create Event
@@ -44,7 +45,10 @@ const Toolbar = () => {
                         </ul>
                     </nav>
 
+
+
                     <div className="flex items-center gap-4">
+                        <DarkModeToggle/>
                         <p className="text-sm">Logged in as: <span className="underline">{loggedUser.username}</span></p>
                         <div className="sm:flex sm:gap-4">
                             <a

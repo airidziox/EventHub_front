@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -19,4 +20,26 @@ body {
 
 .animate-fade {
     animation: fade 0.2s ease-out;
+}
+
+@layer base {
+    body {
+        @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-white
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700
+    }
+}
+
+@theme {
+    --color-background: #ffffff;
+    --color-foreground: #111111;
+}
+
+.dark {
+    --color-background: #111111;
+    --color-foreground: #ffffff;
 }

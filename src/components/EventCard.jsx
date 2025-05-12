@@ -147,7 +147,7 @@ const EventCard = ({event}) => {
 
     return (
         <div
-            className="relative rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200">
+            className="card relative rounded-2xl overflow-hidden shadow-lg">
             {/* Seats badge */}
             <div
                 className="absolute flex gap-1 top-3 right-3 bg-rose-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
@@ -176,7 +176,7 @@ const EventCard = ({event}) => {
                     {loggedUser.username === event.username &&
                         <div
                             onClick={() => setIsModalOpen(true)}
-                            className="text-sm cursor-pointer text-white bg-gray-800 hover:bg-gray-600 font-medium py-1 px-2 rounded-md transition">Edit</div>
+                            className="text-sm cursor-pointer text-white bg-gray-800 hover:bg-gray-600 font-medium py-1 px-2 rounded-md transition dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">Edit</div>
                     }
                 </div>
 

@@ -3,25 +3,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
     {
-        image: "https://www.kastongroup.com/site/wp-content/uploads/2017/06/resources-banner-1600x600.jpg",
+        image: "https://mspmag.com/downloads/39171/download/lanterns-at-party.jpg?cb=43809a5981159e39617fcedd93c393f5",
         title: "Find Amazing Events",
         subtitle: "Discover the best gatherings near you.",
     },
     {
-        image: "https://www.indochinasails.com/MediaUpload/121294510Du_thuyen_Indochine_Indochina_Sails_(5)_(1).jpg",
+        image: "https://www.eventsindustryforum.co.uk/images/articles/about_the_eif.jpg",
         title: "Join the Hype",
         subtitle: "Concerts, parties, and festivals all in one place.",
     },
     {
-        image: "https://i.ebayimg.com/00/s/NjAwWDE2MDA=/z/~NEAAOSwhelkcVaw/$_57.JPG?set_id=8800005007",
+        image: "https://cdn.prod.website-files.com/6769617aecf082b10bb149ff/67763d8a2775bee07438e7a5_Events.png",
         title: "Grow Professionally",
         subtitle: "Tech talks, workshops, and networking events.",
-    },
-    {
-        image: "https://i.ebayimg.com/00/s/NjAwWDE2MDA=/z/~NEAAOSwhelkcVaw/$_57.JPG?set_id=8800005007",
-        title: "Grow Professionally",
-        subtitle: "Tech talks, workshops, and networking events.",
-    },
+    }
 ];
 
 const HeroCarousel = () => {

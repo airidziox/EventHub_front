@@ -189,9 +189,9 @@ const EventCard = ({event}) => {
                 {/* Edit Modal */}
                 {isModalOpen && (
                     <div
-                        className="fixed inset-0 bg-black/50 bg-opacity-40 flex justify-center items-center z-50 animate-fade"
+                        className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 animate-fade"
                         onClick={() => setIsModalOpen(false)}>
-                        <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-xl ring-1 ring-gray-900/5 dark:ring-gray-700/5 w-[90%] max-w-md"
+                        <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-900/5 dark:ring-gray-700 w-[90%] max-w-md"
                              onClick={(e) => e.stopPropagation()}>
 
                             {/* Form */}
@@ -206,7 +206,7 @@ const EventCard = ({event}) => {
                                             placeholder="Title"
                                             ref={titleRef}
                                             required
-                                            className={`peer mt-1 w-full border-b-2 ${errors.title ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                            className={`peer mt-1 w-full border-b-2 ${errors.title ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none text-gray-900 dark:text-white`}
                                         />
                                         <label
                                             className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
@@ -224,7 +224,7 @@ const EventCard = ({event}) => {
                                             placeholder="Description"
                                             ref={descriptionRef}
                                             required
-                                            className={`peer mt-1 w-full border-b-2 ${errors.description ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                            className={`peer mt-1 w-full border-b-2 ${errors.description ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none text-gray-900 dark:text-white`}
                                         />
                                         <label
                                             className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
@@ -242,7 +242,7 @@ const EventCard = ({event}) => {
                                             placeholder="Location"
                                             ref={locationRef}
                                             required
-                                            className={`peer mt-1 w-full border-b-2 ${errors.location ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                            className={`peer mt-1 w-full border-b-2 ${errors.location ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none text-gray-900 dark:text-white`}
                                         />
                                         <label
                                             className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
@@ -260,7 +260,7 @@ const EventCard = ({event}) => {
                                             placeholder="Number of seats"
                                             ref={seatsRef}
                                             required
-                                            className={`peer mt-1 w-full border-b-2 ${errors.seats ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                            className={`peer mt-1 w-full border-b-2 ${errors.seats ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none text-gray-900 dark:text-white`}
                                         />
                                         <label
                                             className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
@@ -278,7 +278,7 @@ const EventCard = ({event}) => {
                                             placeholder="Event Image URL"
                                             ref={imageRef}
                                             required
-                                            className={`peer mt-1 w-full border-b-2 ${errors.image ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none`}
+                                            className={`peer mt-1 w-full border-b-2 ${errors.image ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} bg-transparent px-0 py-1 placeholder:text-transparent focus:border-rose-500 focus:outline-none text-gray-900 dark:text-white`}
                                         />
                                         <label
                                             className="absolute pointer-events-none top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 dark:text-gray-300 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800 dark:peer-focus:text-gray-300">
@@ -291,7 +291,7 @@ const EventCard = ({event}) => {
 
                                     {/* Category */}
                                     <div className="mt-6">
-                                        <label className="block mb-1 text-gray-500 dark:text-gray-400 opacity-75">Category</label>
+                                        <label className="block mb-1 text-gray-500 dark:text-gray-300 opacity-75">Category</label>
                                         <select
                                             ref={categoryRef}
                                             className={`w-full bg-white dark:bg-gray-700 text-gray-800 dark:text-white border ${errors.category ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
@@ -314,24 +314,24 @@ const EventCard = ({event}) => {
                                     {/* Date & Time */}
                                     <div className="grid grid-cols-2 gap-4 mt-6">
                                         <div>
-                                            <label className="block mb-1 text-gray-500 dark:text-gray-400 opacity-75">Date</label>
+                                            <label className="block mb-1 text-gray-500 dark:text-gray-300 opacity-75">Date</label>
                                             <input
                                                 type="date"
                                                 ref={dateRef}
                                                 required
-                                                className={`w-full bg-white dark:bg-gray-700 text-gray-800 dark:text-white border ${errors.date ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                                                className={`w-full bg-transparent border ${errors.date ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500 text-gray-900 dark:text-white`}
                                             />
                                             {errors.date && (
                                                 <p className="mt-1 text-sm text-rose-500">{errors.date}</p>
                                             )}
                                         </div>
                                         <div>
-                                            <label className="block mb-1 text-gray-500 dark:text-gray-400 opacity-75">Time</label>
+                                            <label className="block mb-1 text-gray-500 dark:text-gray-300 opacity-75">Time</label>
                                             <input
                                                 type="time"
                                                 ref={timeRef}
                                                 required
-                                                className={`w-full bg-white dark:bg-gray-700 text-gray-800 dark:text-white border ${errors.time ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500`}
+                                                className={`w-full bg-transparent border ${errors.time ? "border-rose-500" : "border-gray-300 dark:border-gray-600"} rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-rose-500 text-gray-900 dark:text-white`}
                                             />
                                             {errors.time && (
                                                 <p className="mt-1 text-sm text-rose-500">{errors.time}</p>

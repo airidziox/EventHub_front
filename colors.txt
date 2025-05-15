@@ -1,0 +1,83 @@
+EVENT APP COLOR REFERENCE
+=======================
+
+TEXT COLORS
+----------
+Headers & Titles:
+- Light: text-gray-800
+- Dark: text-gray-200
+
+Body Text & Labels:
+- Light: text-gray-500
+- Dark: text-gray-300
+
+Secondary Text:
+- Light: text-gray-700
+- Dark: text-gray-400
+
+Placeholder Text:
+- Light: text-gray-500
+- Dark: text-gray-400
+
+BACKGROUND COLORS
+---------------
+Main Background:
+- Light: bg-white
+- Dark: bg-gray-800
+
+Secondary Background (inputs, selects):
+- Light: bg-white
+- Dark: bg-gray-700
+
+Modal Overlay:
+- Both: bg-black/50 (50% opacity black)
+
+BORDER COLORS
+------------
+Input Borders:
+- Light: border-gray-300
+- Dark: border-gray-600
+
+Ring/Outline:
+- Light: ring-gray-900/5
+- Dark: ring-gray-700
+
+Focus Ring:
+- Both: ring-rose-500
+
+Error States:
+- Both: border-rose-500
+
+BUTTON COLORS
+------------
+Primary Button:
+- Light: bg-rose-500 hover:bg-rose-600
+- Dark: bg-rose-600 hover:bg-rose-700
+
+Secondary Button:
+- Light: bg-gray-800 hover:bg-gray-700
+- Dark: bg-gray-700 hover:bg-gray-600
+
+Edit Button:
+- Light: bg-gray-800 hover:bg-gray-600
+- Dark: bg-gray-700 hover:bg-gray-600
+
+CATEGORY BADGE COLORS
+------------------
+Music: bg-blue-500 text-white
+Sports: bg-green-500 text-white
+Conference: bg-purple-500 text-white
+Art: bg-pink-500 text-white
+Technology: bg-orange-500 text-white
+Festival: bg-red-500 text-white
+Education: bg-cyan-500 text-white
+Business: bg-gray-700 text-white
+
+OTHER ELEMENTS
+------------
+Seats Badge:
+- Light: bg-rose-500
+- Dark: bg-rose-600
+
+Error Messages:
+- Both: text-rose-500
